@@ -18,14 +18,21 @@ Some basic functions from the stantard C library rewrited in Assembly x86_64.
 * write
 * read
 
-## How to use
+## How to compile
 
 A makefile is given to let you compile a shared library named libasm.so.
 
-If you don't want to use the shared library, the makefile will also compile a short C program incluing some basic functions from the lib.
+It will also compile a short C program named main_for_test including examples to show you how to use functions from the lib.
 
-Just use Makefile command :
+### In your terminal
+
+Just use Makefile command to compile both files :
 
 ```
 make
+```
+
+Use main_for_test :
+```
+./main_for_test
 ```
