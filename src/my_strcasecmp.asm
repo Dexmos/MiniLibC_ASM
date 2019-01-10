@@ -1,17 +1,17 @@
-	BITS 64
+	bits 64
 
-	SECTION .text
+	section .text
 
 	global  my_strcasecmp:function
 
 my_strcasecmp:
-	PUSH    RBP
-	mov     RBP, RSP
+	push    rbp
+	mov     rbp, rsp
 
-	xor	rcx, rcx
+	xor		rcx, rcx
 
 strcasecmp_lower_rdi:
-        mov     r8b, [rdi + rcx]
+    mov     r8b, [rdi + rcx]
 
 	cmp     r8b, byte 65
 	jl      strcasecmp_lower_rsi
@@ -28,7 +28,7 @@ strcasecmp_lower_rsi:
 	jg      strcasecmp_while
 	add     r9b, 32
 
-	jmp	strcasecmp_while
+	jmp		strcasecmp_while
 
 strcasecmp_while:
 	cmp     r8b, byte 0
@@ -39,7 +39,7 @@ strcasecmp_while:
 	cmp     r8b, r9b
 	jne     strcasecmp_return
 
-	inc	rcx
+	inc		rcx
 	jmp     strcasecmp_lower_rdi
 
 strcasecmp_return:
@@ -47,5 +47,5 @@ strcasecmp_return:
 	sub     al, r9b
 	movsx   rax, al
 
-	LEAVE
+	leave
 	ret

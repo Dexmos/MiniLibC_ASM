@@ -1,37 +1,37 @@
-	BITS 64
-	
-	SECTION .text
+	bits 64
+
+	section .text
 
 	global my_strchr:function
 
 my_strchr:
-	PUSH    RBP
-	mov     RBP, RSP
+	push    rbp
+	mov     rbp, rsp
 
 strchr_while:
-	cmp	[rdi], byte 0
-	je	do_things
-	
-	cmp	[rdi], sil
-	je	strchr_return
+	cmp		[rdi], byte 0
+	je		do_things
 
-	inc	rdi
-	jmp	strchr_while
+	cmp		[rdi], sil
+	je		strchr_return
+
+	inc		rdi
+	jmp		strchr_while
 
 do_things:
-	cmp	sil, byte 0
-	je	strchr_return
+	cmp		sil, byte 0
+	je		strchr_return
 
-	jmp	strchr_return_null
-	
+	jmp		strchr_return_null
+
 strchr_return_null:
-	xor	rax, rax
+	xor		rax, rax
 
-	LEAVE
+	leave
 	ret
-	
-strchr_return:
-	lea	rax, [rdi]
 
-	LEAVE
+strchr_return:
+	lea		rax, [rdi]
+
+	leave
 	ret

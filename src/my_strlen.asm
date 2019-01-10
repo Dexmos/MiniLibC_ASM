@@ -1,34 +1,35 @@
-        BITS 64
+    bits 64
 
-	SECTION .text
+	section .text
 
 	global my_strlen:function
 
 my_strlen:
-	PUSH RBP
-	mov RBP, RSP
+	push	rbp
+	mov 	rbp, rsp
 
-	push RDI
-	jmp _my_strlen
+	push 	rdi
+	jmp 	_my_strlen
 	ret
-	
+
 _my_strlen:
-	push  rcx
-	xor   rcx, rcx
+	push  	rcx
+	xor   	rcx, rcx
 
-	push rdi
-	jp _strlen_while
+	push 	rdi
+	jp 		_strlen_while
 	ret
-	
-_strlen_while:
-	cmp   [rdi + rcx], byte 0
-	jz    _strlen_null
 
-	inc   rcx
-	jmp   _strlen_while
-	
+_strlen_while:
+	cmp   	[rdi + rcx], byte 0
+	jz    	_strlen_null
+
+	inc   	rcx
+	jmp   	_strlen_while
+
 _strlen_null:
-	mov rax, rcx
-	pop rcx
-	LEAVE
+	mov 	rax, rcx
+	pop 	rcx
+
+	leave
 	ret

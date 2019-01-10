@@ -11,5 +11,6 @@
 #define MINILIBC_ASM
 
 int my_strcmp(const char *s1, const char *s2);
+ssize_t my_write(int fd, const void *buf, size_t count);
 
 #endif /* MINILIBC_ASM */

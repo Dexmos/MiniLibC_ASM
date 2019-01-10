@@ -1,29 +1,29 @@
-	BITS 64
+	bits 64
 
-	SECTION .text
+	section .text
 
 	global my_memset:function
 
 my_memset:
-	PUSH    RBP
-	mov     RBP, RSP
+	push    rbp
+	mov     rbp, rsp
 
 	xor     rcx, rcx
 	jmp     memset_while
 
 memset_while:
-	cmp	[rdi + rcx],  byte 0
-	je	memset_return
+	cmp		[rdi + rcx],  byte 0
+	je		memset_return
 
-	cmp	rcx, rdx
-	je	memset_return
+	cmp		rcx, rdx
+	je		memset_return
 
-	mov	[rdi + rcx], sil
-	inc	rcx
-	jmp	memset_while
+	mov		[rdi + rcx], sil
+	inc		rcx
+	jmp		memset_while
 
 memset_return:
-	mov	rax, rdi
+	mov		rax, rdi
 
-	LEAVE
+	leave
 	ret

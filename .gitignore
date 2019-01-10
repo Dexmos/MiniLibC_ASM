@@ -1,5 +1,6 @@
 /cmake-build-debug/
 *.so*
+main_for_test
 *.log
 *~
 #*#

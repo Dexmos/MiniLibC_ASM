@@ -1,15 +1,15 @@
-        BITS 64
+        bits 64
 
-	SECTION .text
+	section	.text
 
-	GLOBAL my_write:function
+	global 	my_write:function
 
 my_write:
-	PUSH RBP
-	MOV RBP, RSP
+	push	rbp
+	mov 	rbp, rsp
 
-	mov RAX, 1
-	SYSCALL
+	mov 	rax, 1
+	syscall
 
-	LEAVE
-	RET
+	leave
+	ret

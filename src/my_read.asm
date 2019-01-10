@@ -1,15 +1,15 @@
-        BITS    64
+	bits 64
 
-	SECTION .txt
+	section .txt
 
 	global  my_read:function
 
 my_read:
-        PUSH RBP
-	mov RBP, RSP
+        push 	rbp
+	mov 	rbp, rsp
 
-	mov rax, 0
-	SYSCALL
-	
-	LEAVE
+	mov 	rax, 0
+	syscall
+
+	leave
 	ret
